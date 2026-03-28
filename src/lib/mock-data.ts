@@ -20,6 +20,8 @@ export interface Service {
   category: string;
   status: "active" | "inactive";
   clients: number;
+  metaTitle: string;
+  metaDescription: string;
 }
 
 export interface Lead {
@@ -37,11 +39,25 @@ export interface Blog {
   id: string;
   title: string;
   excerpt: string;
+  description: string;
   author: string;
   status: "draft" | "published" | "archived";
   category: string;
   views: number;
+  coverImage?: string;
+  metaTitle: string;
+  metaDescription: string;
+  wordCount: number;
   publishedAt: string;
+}
+
+export interface Industry {
+  id: string;
+  serviceId: string;
+  title: string;
+  content: string;
+  metaTitle: string;
+  metaDescription: string;
 }
 
 export interface Invoice {
@@ -104,14 +120,14 @@ export const clients: Client[] = [
 ];
 
 export const services: Service[] = [
-  { id: "1", name: "SEO Optimization", description: "Full SEO audit and optimization", price: 2500, category: "SEO", status: "active", clients: 12 },
-  { id: "2", name: "Social Media Management", description: "Complete social media strategy and management", price: 3000, category: "Social", status: "active", clients: 18 },
-  { id: "3", name: "PPC Campaigns", description: "Google & Meta paid advertising", price: 4500, category: "Advertising", status: "active", clients: 8 },
-  { id: "4", name: "Content Marketing", description: "Blog posts, whitepapers, and content strategy", price: 2000, category: "Content", status: "active", clients: 15 },
-  { id: "5", name: "Web Development", description: "Custom website design and development", price: 8000, category: "Development", status: "active", clients: 6 },
-  { id: "6", name: "Email Marketing", description: "Email campaigns and automation", price: 1500, category: "Email", status: "active", clients: 20 },
-  { id: "7", name: "Brand Strategy", description: "Complete brand identity and strategy", price: 5000, category: "Branding", status: "inactive", clients: 3 },
-  { id: "8", name: "Video Production", description: "Promotional videos and reels", price: 3500, category: "Content", status: "active", clients: 9 },
+  { id: "1", name: "SEO Optimization", description: "Full SEO audit and optimization", price: 2500, category: "SEO", status: "active", clients: 12, metaTitle: "SEO Optimization | Viralstan", metaDescription: "Professional SEO services" },
+  { id: "2", name: "Social Media Management", description: "Complete social media strategy and management", price: 3000, category: "Social", status: "active", clients: 18, metaTitle: "Social Media Management | Viralstan", metaDescription: "Social media strategy" },
+  { id: "3", name: "PPC Campaigns", description: "Google & Meta paid advertising", price: 4500, category: "Advertising", status: "active", clients: 8, metaTitle: "PPC Campaigns | Viralstan", metaDescription: "Paid advertising services" },
+  { id: "4", name: "Content Marketing", description: "Blog posts, whitepapers, and content strategy", price: 2000, category: "Content", status: "active", clients: 15, metaTitle: "Content Marketing | Viralstan", metaDescription: "Content strategy services" },
+  { id: "5", name: "Web Development", description: "Custom website design and development", price: 8000, category: "Development", status: "active", clients: 6, metaTitle: "Web Development | Viralstan", metaDescription: "Web development services" },
+  { id: "6", name: "Email Marketing", description: "Email campaigns and automation", price: 1500, category: "Email", status: "active", clients: 20, metaTitle: "Email Marketing | Viralstan", metaDescription: "Email marketing services" },
+  { id: "7", name: "Brand Strategy", description: "Complete brand identity and strategy", price: 5000, category: "Branding", status: "inactive", clients: 3, metaTitle: "Brand Strategy | Viralstan", metaDescription: "Brand identity services" },
+  { id: "8", name: "Video Production", description: "Promotional videos and reels", price: 3500, category: "Content", status: "active", clients: 9, metaTitle: "Video Production | Viralstan", metaDescription: "Video production services" },
 ];
 
 export const leads: Lead[] = [
@@ -125,12 +141,13 @@ export const leads: Lead[] = [
 ];
 
 export const blogs: Blog[] = [
-  { id: "1", title: "10 SEO Trends That Will Dominate 2026", excerpt: "Stay ahead with these emerging SEO strategies...", author: "Sarah Chen", status: "published", category: "SEO", views: 2340, publishedAt: "2024-07-15" },
-  { id: "2", title: "The Ultimate Guide to Social Media ROI", excerpt: "Learn how to measure and maximize your social ROI...", author: "Alex Thompson", status: "published", category: "Social Media", views: 1890, publishedAt: "2024-07-10" },
-  { id: "3", title: "PPC vs Organic: Where to Invest", excerpt: "A comprehensive comparison of paid and organic strategies...", author: "Marcus Rivera", status: "draft", category: "Strategy", views: 0, publishedAt: "" },
-  { id: "4", title: "Email Marketing Automation Best Practices", excerpt: "Automate your email campaigns without losing the personal touch...", author: "Emma Watson", status: "published", category: "Email", views: 3120, publishedAt: "2024-07-01" },
-  { id: "5", title: "Building Brand Identity in Digital Age", excerpt: "How to create a memorable brand presence online...", author: "Sarah Chen", status: "archived", category: "Branding", views: 890, publishedAt: "2024-05-20" },
+  { id: "1", title: "10 SEO Strategies to Grow in 2026", excerpt: "Stay ahead with these emerging SEO strategies...", description: "<p>SEO is evolving. Here are top strategies...</p>", author: "Sarah Chen", status: "published", category: "SEO", views: 2340, wordCount: 7000, coverImage: "", metaTitle: "Top SEO Strategies 2026 | Viralstan", metaDescription: "Discover the top SEO strategies for 2026", publishedAt: "2024-07-15" },
+  { id: "2", title: "How to Run Facebook Ads That Convert", excerpt: "Learn how to measure and maximize your social ROI...", description: "<p>Facebook ads require a strategic approach...</p>", author: "Alex Thompson", status: "published", category: "Ads", views: 1890, wordCount: 4000, coverImage: "", metaTitle: "Facebook Ads Guide | Viralstan", metaDescription: "Master Facebook advertising", publishedAt: "2024-07-10" },
+  { id: "3", title: "Tredix", excerpt: "A comprehensive comparison of paid and organic strategies...", description: "<p>Tredix case study and analysis...</p>", author: "Marcus Rivera", status: "draft", category: "", views: 0, wordCount: 1000, coverImage: "", metaTitle: "", metaDescription: "", publishedAt: "" },
 ];
+
+export const industries: Industry[] = [];
+
 
 export const invoices: Invoice[] = [
   { id: "1", invoiceNumber: "INV-001", clientId: "1", clientName: "TechCorp", items: [{ serviceName: "SEO Optimization", price: 2500, quantity: 1 }, { serviceName: "Content Marketing", price: 2000, quantity: 2 }], amount: 6500, status: "paid", issueDate: "2024-07-01", dueDate: "2024-07-31" },
