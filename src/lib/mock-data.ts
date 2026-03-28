@@ -20,6 +20,8 @@ export interface Service {
   category: string;
   status: "active" | "inactive";
   clients: number;
+  metaTitle: string;
+  metaDescription: string;
 }
 
 export interface Lead {
