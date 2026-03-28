@@ -32,6 +32,7 @@ const navItems = [
   { label: "Clients", icon: Users, path: "/clients" },
   { label: "Leads", icon: Target, path: "/leads" },
   { label: "Services", icon: Briefcase, path: "/services" },
+  { label: "Industries", icon: Building2, path: "/industries" },
   { label: "Blogs", icon: FileText, path: "/blogs" },
   { label: "Reviews", icon: Star, path: "/reviews" },
   { label: "Analytics", icon: BarChart3, path: "/analytics" },
